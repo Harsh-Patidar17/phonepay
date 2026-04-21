@@ -35,7 +35,6 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
 
-
 app.listen(port, () => {
     console.log(`Server is running at port : ${port}`);
     console.log(`Swagger docs available at http://localhost:${port}/api-docs`);
