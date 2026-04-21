@@ -2,6 +2,7 @@ import express, { urlencoded } from "express";
 import dotenv from 'dotenv';
 import cors from 'cors';
 import authRoutes from './src/routes/authRoutes.js'
+import transactionRoutes from './src/routes/transactionRoutes.js'
 import connectDB from "./src/config/db.js";
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from "./swagger-output.json" with { type: "json" };
@@ -26,12 +27,13 @@ app.use(express.urlencoded({extended: true}));
 const port = process.env.PORT || 3000;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
- 
+
 app.get('/', (req, res) => {
     res.send("harsh");
 })
 
 app.use('/api/auth', authRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 
 app.listen(port, () => {
