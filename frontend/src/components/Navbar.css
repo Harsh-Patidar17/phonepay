@@ -1,0 +1,50 @@
+.navbar {
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--accent-color);
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}

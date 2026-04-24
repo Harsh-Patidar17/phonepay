@@ -8,5 +8,4 @@ const router = Router();
 router.post('/send', protect, sendMoney);
 router.get('/history', protect, getTransactionHistory);
 
-
 export default router;

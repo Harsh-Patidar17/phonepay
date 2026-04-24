@@ -94,12 +94,12 @@ export const loginUser = async (req, res) => {
 export const setUpMpin = async (req, res) => {
         const { mpin } = req.body;
         if(!mpin || mpin.length != 4) {
-            res.staus(400).json({message: 'Mpin must be 4 digits'});
+            return res.status(400).json({message: 'Mpin must be 4 digits'});
         }
         const salt = await bcrypt.genSalt(10);
         const hashed = await bcrypt.hash(mpin, salt);
         
-            const updatedUser = await User.findByIdAndUpdate(req.user._id, {mpin: hashed}, {new: true});
+            const updatedUser = await User.findByIdAndUpdate(req.user._id, {mpin: hashed}, {returnDocument: 'after'});
             if(updatedUser) {
                 return res.status(200).json({message: 'Mpin set successfully'});
             } else {
